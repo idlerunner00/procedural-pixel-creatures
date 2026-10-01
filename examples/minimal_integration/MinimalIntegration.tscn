@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://examples/minimal_integration/MinimalIntegration.cs" id="1_min"]
+[ext_resource type="PackedScene" path="res://addons/procedural_creatures/Runtime/CreatureActor.tscn" id="2_actor"]
+
+[node name="MinimalIntegration" type="Node2D"]
+script = ExtResource("1_min")
+
+[node name="Ground" type="ColorRect" parent="."]
+offset_left = -400.0
+offset_top = -250.0
+offset_right = 400.0
+offset_bottom = 250.0
+color = Color(0.36, 0.5, 0.29, 1)
+
+[node name="Creatures" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="Creatures" instance=ExtResource("2_actor")]
+FamilyId = "quadruped"
+SeedText = "Beispiel"
+
+[node name="Plant" parent="Creatures" instance=ExtResource("2_actor")]
+position = Vector2(-70, -30)
+PresetPath = "res://addons/procedural_creatures_plantfolk/Samples/plantfolk/plantfolk_02.json"
+
+[node name="Reptile" parent="Creatures" instance=ExtResource("2_actor")]
+position = Vector2(80, -40)
+FamilyId = "reptile"
+SeedText = "Drache 7"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)

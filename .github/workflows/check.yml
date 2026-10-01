@@ -1,0 +1,32 @@
+name: Source checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-2022
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-dotnet@v6.0.0
+        with:
+          dotnet-version: '8.0.425'
+      - name: Check source package
+        shell: powershell
+        run: ./scripts/audit-source.ps1
+      - name: Build and run full core and Godot tests
+        shell: powershell
+        run: ./scripts/check.ps1
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: windows-test-reports
+          path: reports/*.json
+          if-no-files-found: ignore

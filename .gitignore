@@ -1,0 +1,52 @@
+# Godot imports and machine-local settings
+.godot/
+.import/
+*.import
+export.cfg
+export_credentials.cfg
+*.translation
+mono_crash.*.json
+/.godot-path
+/override.cfg
+
+# Private toolchain, generated NuGet feeds, .NET and IDE caches
+/.tools/
+/NuGet.Config
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.vscode/
+.idea/
+
+# Generated reports, captures, builds and release artifacts
+/reports/
+/build/
+/out/
+tools/core_harness/out/
+*.mp4
+*.mov
+*.avi
+*.zip
+*.7z
+*.tpz
+*.log
+*.tmp
+
+# Optional Python tooling
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local credentials and operating system metadata
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.pem
+.DS_Store
+Thumbs.db
+Desktop.ini

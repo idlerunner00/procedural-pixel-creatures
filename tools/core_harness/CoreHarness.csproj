@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Engine independent console harness. It compiles ONLY the Core of the framework (no Godot
+    assemblies are referenced), which proves that generation, animation and rasterization do not
+    depend on the engine. Used for core tests and deterministic baseline values.
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>12.0</LangVersion>
+    <RootNamespace>PixelCreatures.Harness</RootNamespace>
+    <AssemblyName>CoreHarness</AssemblyName>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <TieredPGO>true</TieredPGO>
+    <WarningsAsErrors>CS8600;CS8601;CS8602;CS8603;CS8604;CS8618;CS8625</WarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../addons/procedural_creatures/Core/**/*.cs" LinkBase="Core" />
+    <Compile Include="../../addons/procedural_creatures_plantfolk/Core/**/*.cs" LinkBase="Plantfolk" />
+    <Compile Include="../../tests/Core/**/*.cs" LinkBase="Tests" />
+  </ItemGroup>
+</Project>
