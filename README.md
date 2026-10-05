@@ -2,6 +2,8 @@
 
 ![100 procedurally generated creatures in a living landscape](.github/images/creatures.gif)
 
+[![Join Discord](https://github.com/user-attachments/assets/56ec7fcd-9c82-4450-8326-9419003b9a6a)](https://discord.gg/KmbhM2mJdH)
+
 A pixel creature generator, animation framework and genetics workshop built with **Godot 4.5.2 .NET / C#**.
 Body shapes, limbs, faces, colors, markings, rigs and movement are generated in code.
 There are no premade creature sprites or AI-generated source images. After the initial setup,
